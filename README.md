@@ -31,6 +31,7 @@ sudo pacman -S make gcc
 
 ### Just run:
 ```bash
+chmod +x configure
 ./configure
 ```
 
