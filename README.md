@@ -39,7 +39,7 @@ It will prompt you with a few questions to customize how your init script behave
 
 ## Compiling
 
-### After you answered the question 2 files will be made:
+### After you answered the questions 2 files will be made:
   - init.c (Main C file)
   - Makefile (To easily compile)
 
