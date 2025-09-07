@@ -171,6 +171,11 @@ if [ "$RUNDAS" = 1 ]; then
 	echo "int run_services(void) {" >> init.c
 	echo '	FILE *fp = fopen("/etc/init.rc", "r");' >> init.c
 	echo "	if (!fp) {" >> init.c
+	if [ "$VERBOSEMSG" = 1 ]; then
+		cat >> init.c <<'EOF'
+printf("Didn't find /etc/init.rc, skipping...\n");
+EOF
+	fi
 	echo "		return 0;" >> init.c
 	echo "	}" >> init.c
 	echo "	char line[256];" >> init.c
@@ -236,7 +241,7 @@ if [ "$MOUNTTMP" = 1 ]; then
 	if [ "$VERBOSEMSG" = 1 ]; then
 		printf '	printf("Init: Mounting /tmp...\\n");\n' >> init.c
 	fi
-	echo '	mount("tmpfs", "/tmp", "tmpfs", 0, NULL);' >> init.c
+	echo '	ret = mount("tmpfs", "/tmp", "tmpfs", 0, NULL);' >> init.c
 	echo '	if (ret != 0) {' >> init.c
 	echo '		fprintf(stderr, "Init: Mounting failed: %s!\\n", strerror(errno));' >> init.c
 	echo '	}' >> init.c
