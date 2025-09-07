@@ -18,13 +18,13 @@ First, we need to install some packages.
 ### On Debian/Ubuntu:
 
 ```bash
-sudo apt install make gcc
+sudo apt install make gcc binutils
 ```
 
 ### On Arch:
 
 ```bash
-sudo pacman -S make gcc
+sudo pacman -S make gcc binutils
 ```
 
 ## Configuring
