@@ -158,6 +158,7 @@ if [ "$MOUNTDEV" = 1 ] || [ "$MOUNTPROC" = 1 ] || [ "$MOUNTSYS" = 1 ] || [ "$MOU
 fi
 if [ "$VERBOSEMSG" = 1 ]; then
 	echo "#include <errno.h>" >> init.c
+	echo "#include <string.h>" >> init.c
 fi
 echo "#include <sys/types.h>" >> init.c
 echo "#include <sys/wait.h>" >> init.c
